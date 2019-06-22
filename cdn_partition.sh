@@ -26,7 +26,8 @@ function command_exist {
 }
 
 for i in "parted lsb-release" 
-   if ! command_exist $i; then
+   if ! command_exist $i
+   then
      apt-get install $i -y
    fi
 
