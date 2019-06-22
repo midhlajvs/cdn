@@ -25,11 +25,13 @@ function command_exist {
   command -v "$@" > /dev/null 2>&1
 }
 
-for i in "parted lsb-release" 
+for i in "parted lsb-release"
+do 
    if ! command_exist $i
    then
      apt-get install $i -y
    fi
+done
 
 
 for i in $disks
