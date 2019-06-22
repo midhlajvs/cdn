@@ -25,9 +25,11 @@ function command_exist {
   command -v "$@" > /dev/null 2>&1
 }
 
-if ! command_exist parted; then
- apt-get install parted -y
-fi
+for i in "parted lsb_release" 
+   if ! command_exist $i; then
+     apt-get install $i -y
+   fi
+
 
 for i in $disks
 do
